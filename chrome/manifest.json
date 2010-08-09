@@ -1,0 +1,18 @@
+{
+	"name": "QR Link",
+	"version": "0.1",
+	"description": "Turn any URL to QR Code. Good for sharing to mobile phone.",
+	"icons": {
+		"16": "icon16.png",
+		"48": "icon48.png",
+		"128": "icon128.png"
+	},
+	"browser_action": {
+		"default_icon": "icon.png",
+		"popup": "popup.html"
+	},
+	"permissions": [
+		"tabs",
+		"http://chart.apis.google.com/"
+	]
+}

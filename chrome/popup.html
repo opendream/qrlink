@@ -1,0 +1,41 @@
+<html>
+<!--
+    This file is part of LibLib Check.
+    Copyright 2010 Opendream.
+    
+    QR Link is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    QR Link is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with LibLib Check.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<head>
+	<script>
+	function getQR(){
+		chrome.windows.getCurrent(function(w) {
+		    chrome.tabs.getSelected(w.id,
+		    function (response){
+		        var url = response.url;
+				var qrLink = '<img src="http://chart.apis.google.com/chart?'+
+					'cht=qr&'+
+					'chs=350x350&'+
+					'chl='+encodeURIComponent(url)+
+					'" alt="QR Code for url'+
+					url+'" />'
+				document.body.innerHTML = qrLink;
+		    });
+		})
+	}
+	</script>
+</head>
+<body onload="getQR()">
+</body>
+
+</html>
